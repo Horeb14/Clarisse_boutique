@@ -95,8 +95,12 @@ const PRODUCTS = [
 const BESTSELLERS_IDS = [1, 2, 3, 12, 9, 23];
 
 /* ---------- STATE ---------- */
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('clarisse_cart') || '[]');
 let currentProduct = null;
+
+function saveCart() {
+  localStorage.setItem('clarisse_cart', JSON.stringify(cart));
+}
 
 /* ---------- NAVIGATION SPA ---------- */
 function showPage(pageId, filterCat, pushState = true) {
@@ -326,6 +330,7 @@ function addToCart(prod) {
   const existing = cart.find(i => i.id === prod.id);
   if (existing) existing.qty++;
   else cart.push({ ...prod, qty: 1 });
+  saveCart();
   renderCart();
   showToast(`${prod.name} ajouté au panier ✓`);
   updateCartCount();
@@ -333,6 +338,7 @@ function addToCart(prod) {
 
 function removeFromCart(id) {
   cart = cart.filter(i => i.id !== id);
+  saveCart();
   renderCart();
   updateCartCount();
 }
@@ -342,7 +348,7 @@ function changeQty(id, delta) {
   if (!item) return;
   item.qty += delta;
   if (item.qty <= 0) removeFromCart(id);
-  else { renderCart(); updateCartCount(); }
+  else { saveCart(); renderCart(); updateCartCount(); }
 }
 
 function renderCart() {
@@ -480,4 +486,7 @@ if (sendWaBtn) {
 // Remplace l'état initial sans créer d'entrée en double
 history.replaceState({ page: 'accueil', filter: null }, '', '#accueil');
 showPage('accueil', null, false);
+
+// Restaurer le compteur panier au chargement
+updateCartCount();
 renderCart();
