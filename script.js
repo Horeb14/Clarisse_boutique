@@ -6,13 +6,13 @@
 const PRODUCTS = [
   // FEMME – Parfums
   { id:1, name:'Sugar Candy', cat:'parfum', genre:'femme', price:9000,
-    img:'images/sugar_candy_parfum_femme.png', badge:'Coup de cœur',
+    img:'images/sugar_candy_parfum_femme.jpg', badge:'Coup de cœur',
     desc:'Une explosion de douceur florale aux notes de sucre et de pétales. Féminine et addictive, elle laisse une trace lumineuse.' },
   { id:2, name:'Ka Ly', cat:'parfum', genre:'femme', price:4500,
-    img:'images/ka_ly_parfum_femme.png', badge:'Best-seller',
+    img:'images/ka_ly_parfum_femme.jpg', badge:'Best-seller',
     desc:'Une féminité délicate aux effluves de fleurs blanches et de bois tendre. Poétique et intime, elle révèle votre grâce naturelle.' },
   { id:3, name:'Valentino', cat:'parfum', genre:'femme', price:6000,
-    img:'images/valentino_parfum_mixte.png', badge:'Best-seller',
+    img:'images/valentino_parfum_mixte.jpg', badge:'Best-seller',
     desc:'Un sillage floral et poudré d\'une douceur envoûtante. Romantique et raffiné, il habille la peau d\'une aura inoubliable.' },
 
   // FEMME – Déodorants
@@ -20,20 +20,20 @@ const PRODUCTS = [
     img:'images/confetti_london_deodorant_femme.png', badge:null,
     desc:'Un déodorant frais et féminin signé Confetti London, aux notes légères et florales. Protection longue durée avec une touche de douceur Londres.' },
   { id:4, name:'Confetti', cat:'deodorant', genre:'femme', price:2500,
-    img:'images/confetti_deodorant_femme.png', badge:null,
+    img:'images/confetti_deodorant_femme.jpg', badge:null,
     desc:'Un déodorant pétillant aux notes fruitées et florales. Légèreté et bonne humeur garanties tout au long de la journée.' },
   { id:5, name:'Nivea Pearl & Beauty', cat:'deodorant', genre:'femme', price:1500,
-    img:'images/nivea_deodorant_femme.png', badge:null,
+    img:'images/nivea_deodorant_femme.jpg', badge:null,
     desc:'Une protection douce aux extraits de perle pour une peau soyeuse. Fraîcheur longue durée et soin en un geste délicat.' },
 
   // FEMME – Brumes
   { id:6, name:'Candy Crush', cat:'brume', genre:'femme', price:1200,
-    img:'images/candy_crush_brume_femme.png', badge:null,
+    img:'images/candy_crush_brume_femme.jpg', badge:null,
     desc:'Une brume sucrée et enveloppante aux notes de fruits rouges et de vanille. Un nuage de douceur pour sublimer votre peau.' },
 
   // FEMME – Chouchous
   { id:7, name:'Chouchou 2 couleurs', cat:'chouchou', genre:'femme', price:1500,
-    img:'images/chouchou_femmes.png', badge:null,
+    img:'images/chouchou_femmes.jpg', badge:null,
     desc:'Scrunchie tendance en deux couleurs assorties. Doux pour les cheveux et parfait pour toutes les occasions.' },
   { id:8, name:'Chouchou 1 couleur', cat:'chouchou', genre:'femme', price:1000,
     img:'images/chouchou_femme.jpg', badge:null,
@@ -41,23 +41,23 @@ const PRODUCTS = [
 
   // HOMME – Parfums
   { id:9, name:'Balea Men', cat:'parfum', genre:'homme', price:5500,
-    img:'images/hero_homme.png', badge:'Best-seller',
+    img:'images/balea_men_parfum_hommes.jpg', badge:'Best-seller',
     desc:'Un boisé aromatique d\'une intensité rare, aux accords frais de cèdre et d\'encens. Pour l\'homme qui s\'impose avec élégance.' },
 
   // HOMME – Déodorants
   { id:10, name:'Balea Men', cat:'deodorant', genre:'homme', price:2000,
-    img:'images/balea_men_deodorant_homme.png', badge:null,
+    img:'images/balea_men_deodorant_homme.jpg', badge:null,
     desc:'Un déodorant masculin efficace aux senteurs fraîches et boisées. Idéal pour affronter la journée avec assurance.' },
   { id:11, name:'Riggs', cat:'deodorant', genre:'homme', price:2000,
-    img:'images/riggs_deodorant_homme.png', badge:null,
+    img:'images/riggs_deodorant_homme.jpg', badge:null,
     desc:'Un déodorant longue durée aux notes intenses et viriles. Protection maximale pour les hommes actifs.' },
 
   // MIXTE – Parfums
   { id:12, name:'Caramel Cascade', cat:'parfum', genre:'mixte', price:3500,
-    img:'images/caramel_cascade_parfum_femme.png', badge:'Best-seller',
+    img:'images/caramel_cascade_parfum_femme.jpg', badge:'Best-seller',
     desc:'Une gourmandise olfactive aux notes caramel et vanille. Enveloppante et douce, elle séduit par sa chaleur sucrée irrésistible.' },
   { id:13, name:'Mosuf', cat:'parfum', genre:'mixte', price:2500,
-    img:'images/mosuf_parfum_mixte.png', badge:null,
+    img:'images/mosuf_parfum_mixte.jpg', badge:null,
     desc:'Une fragrance boisée et ambrée aux notes profondes et mystérieuses. Polyvalente et envoûtante pour chaque moment.' },
   { id:14, name:'Fidèle', cat:'parfum', genre:'mixte', price:500,
     img:'images/fidel_fidel_mixte.png', badge:null,
@@ -65,18 +65,18 @@ const PRODUCTS = [
 
   // MIXTE – Déodorants
   { id:16, name:'Balea', cat:'deodorant', genre:'mixte', price:2000,
-    img:'images/balea_deodorant_mixte.png', badge:null,
+    img:'images/balea_deodorant_mixte.jpg', badge:null,
     desc:'Un soin déodorant efficace aux senteurs fraîches et neutres. Idéal pour une routine quotidienne simple et raffinée.' },
   { id:17, name:'Dove', cat:'deodorant', genre:'mixte', price:2500,
-    img:'images/dove_deodorant_mixte.png', badge:null,
+    img:'images/dove_deodorant_mixte.jpg', badge:null,
     desc:'Une protection douce et hydratante pour une peau soyeuse. Fraîcheur garantie toute la journée avec soin.' },
-  { id:18, name:'Nivea Homme', cat:'deodorant', genre:'mixte', price:2000,
-    img:'images/nivea_deodorant_homme.png', badge:null,
+  { id:18, name:'Nivea', cat:'deodorant', genre:'mixte', price:2000,
+    img:'images/nivea_deodorant_mixte.jpg', badge:null,
     desc:'Un déodorant efficace et doux pour une protection longue durée. Fraîcheur intense et confort au quotidien.' },
 
   // MIXTE – Brumes
   { id:19, name:'Phlur', cat:'brume', genre:'mixte', price:2500,
-    img:'images/phlur_brume_mixte.png', badge:null,
+    img:'images/phlur_brume_mixte.jpg', badge:null,
     desc:'Une brume légère et poétique aux notes florales et musquées. Une caresse parfumée qui dure toute la journée.' },
 
   // MIXTE – Huiles de corps
@@ -84,10 +84,10 @@ const PRODUCTS = [
     img:'images/fidel_fidel_mixte.png', badge:null,
     desc:'Deux huiles corps complémentaires, fidèles à leur promesse de soin et de douceur pour une peau nourrie en profondeur.' },
   { id:21, name:'Vaseline', cat:'huile', genre:'mixte', price:5000,
-    img:'images/vaseline_huile_mixte.png', badge:null,
+    img:'images/vaseline_huile_mixte.jpg', badge:null,
     desc:'Une huile corps Vaseline premium, riche et nourrissante. Hydratation profonde et éclat naturel pour une peau sublimée.' },
   { id:22, name:'Infidèle', cat:'huile', genre:'mixte', price:500,
-    img:'images/infidele_huile_mixte.png', badge:null,
+    img:'images/infidele_huile_mixte.jpg', badge:null,
     desc:'Une huile corps légère aux senteurs subtiles et addictives. Idéale pour nourrir et parfumer la peau subtilement.' },
 ];
 
