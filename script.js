@@ -33,7 +33,7 @@ const PRODUCTS = [
 
   // FEMME – Chouchous
   { id:7, name:'Chouchou 2 couleurs', cat:'chouchou', genre:'femme', price:1500,
-    img:'images/chouchou_femmes.png', badge:null,
+    img:'images/chouchou_deux_couleurs_femmes.jpg', badge:null,
     desc:'Scrunchie tendance en deux couleurs assorties. Doux pour les cheveux et parfait pour toutes les occasions.' },
   { id:8, name:'Chouchou 1 couleur', cat:'chouchou', genre:'femme', price:1000,
     img:'images/chouchou_femme.png', badge:null,
