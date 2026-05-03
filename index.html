@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarisse Boutique – Tout pour sentir bon au quotidien</title>
+  <meta property="og:title" content="Clarisse Boutique – Tout pour sentir bon" />
+  <meta property="og:description" content="Parfums, brumes & huiles de corps premium. Livraison à Cotonou et environs." />
+  <meta property="og:image" content="https://ton-site.netlify.app/images/hero_accueil.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ton-site.netlify.app" />
+  <meta name="description" content="Clarisse Boutique – Parfums, brumes & huiles de corps premium. Livraison à Cotonou et environs." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce-bar">
+    <span><i class="fas fa-map-marker-alt"></i> Livraison à Cotonou et environs</span>
+    <span class="announce-main">Tout pour sentir bon au quotidien</span>
+    <span><i class="fab fa-whatsapp"></i> Commander rapidement sur WhatsApp</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" data-page="accueil">
+        <span class="logo-clarisse">Clarisse</span>
+        <span class="logo-boutique">Boutique</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" data-page="accueil" class="nav-link active">Accueil</a></li>
+        <li><a href="#" data-page="femme" class="nav-link">Femme</a></li>
+        <li><a href="#" data-page="homme" class="nav-link">Homme</a></li>
+        <li><a href="#" data-page="mixte" class="nav-link">Produits Mixtes</a></li>
+        <li><a href="#" data-page="apropos" class="nav-link">À Propos</a></li>
+        <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="searchBtn" title="Rechercher">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="nav-icon-btn" id="cartBtn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="burger" id="burger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#" data-page="accueil" class="nav-link">Accueil</a></li>
+        <li><a href="#" data-page="femme" class="nav-link">Femme</a></li>
+        <li><a href="#" data-page="homme" class="nav-link">Homme</a></li>
+        <li><a href="#" data-page="mixte" class="nav-link">Produits Mixtes</a></li>
+        <li><a href="#" data-page="apropos" class="nav-link">À Propos</a></li>
+        <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE ACCUEIL -->
+  <div class="page" id="page-accueil">
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="images/hero_accueil.png" alt="Clarisse Boutique" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <span class="hero-badge"><i class="fas fa-star"></i> Collection Premium</span>
+        <h1 class="hero-title">Sentir bon devient<br/>une <em>signature.</em></h1>
+        <p class="hero-sub">Parfums, brumes & huiles de corps soigneusement sélectionnés pour sublimer votre quotidien. Chaque senteur, une invitation à être soi.</p>
+        <div class="hero-btns">
+          <button class="btn-dark" data-page="femme">Découvrir la boutique</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-bar">
+      <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Références disponibles</span></div>
+      <div class="stat"><span class="stat-num">4.9 <i class="fas fa-star"></i></span><span class="stat-label">Satisfaction client</span></div>
+      <div class="stat"><span class="stat-num">7j/7</span><span class="stat-label">Disponibilité</span></div>
+      <div class="stat"><span class="stat-num">Cotonou</span><span class="stat-label">Livraison rapide</span></div>
+    </section>
+
+    <section class="features-section">
+      <div class="container features-grid">
+        <div class="feature"><div class="feat-icon"><i class="fas fa-star"></i></div><h4>Produits de qualité</h4><p>Sélection rigoureuse de marques reconnues</p></div>
+        <div class="feature"><div class="feat-icon"><i class="fas fa-shield-alt"></i></div><h4>Paiement sécurisé</h4><p>Transactions sûres et protégées</p></div>
+        <div class="feature"><div class="feat-icon"><i class="fas fa-truck"></i></div><h4>Livraison rapide</h4><p>Livraison à Cotonou et ses environs</p></div>
+        <div class="feature"><div class="feat-icon"><i class="fas fa-magic"></i></div><h4>Senteurs qui tiennent</h4><p>Des fragrances longue durée garanties</p></div>
+      </div>
+    </section>
+
+    <section class="section-pad">
+      <div class="container">
+        <p class="section-eyebrow">Nos catégories</p>
+        <h2 class="section-title">Explorez la collection</h2>
+        <div class="cat-grid">
+          <a href="#" class="cat-card" data-page="femme">
+            <img src="https://i.pinimg.com/736x/4f/19/73/4f197308ebb87a9de6d8a512fe2f9667.jpg" alt="Femme" />
+            <div class="cat-info"><p class="cat-sub">Douceur & Féminité</p><h3>FEMME</h3></div>
+          </a>
+          <a href="#" class="cat-card" data-page="homme">
+            <img src="https://i.pinimg.com/736x/8c/93/d2/8c93d24690f77d39f6d80d7aecb637a8.jpg" alt="Homme" />
+            <div class="cat-info"><p class="cat-sub">Force & Caractère</p><h3>HOMME</h3></div>
+          </a>
+          <a href="#" class="cat-card" data-page="mixte">
+            <img src="https://i.pinimg.com/1200x/89/bd/05/89bd0530a6225caa250f9a89c248f327.jpg" alt="Mixte" />
+            <div class="cat-info"><p class="cat-sub">Équilibre & Modernité</p><h3>MIXTE</h3></div>
+          </a>
+          <a href="#" class="cat-card" data-page="femme" data-filter="chouchou">
+            <img src="https://i.pinimg.com/736x/f7/03/4f/f7034f692ea02cae22ece14fc9586263.jpg" alt="Chouchous" />
+            <div class="cat-info"><p class="cat-sub">Coffrets & Coups de cœur</p><h3>CHOUCHOUS</h3></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad bg-light">
+      <div class="container">
+        <p class="section-eyebrow">Les favoris</p>
+        <h2 class="section-title">Meilleures ventes</h2>
+        <div class="products-grid" id="bestsellersGrid"></div>
+        <div class="center-btn" style="margin-top:48px">
+          <button class="btn-dark" data-page="femme">Voir tous les produits</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad">
+      <div class="container">
+        <p class="section-eyebrow">Ce qu'ils disent</p>
+        <h2 class="section-title">Avis clients</h2>
+        <div class="avis-grid">
+          <div class="avis-card">
+            <div class="avis-stars">⭐⭐⭐⭐⭐</div>
+            <p class="avis-text">"Tes produits sont cool et classiques. J'aime bien l'odeur des parfums."</p>
+            <div class="avis-nom">— Hippolyte</div>
+          </div>
+          <div class="avis-card">
+            <div class="avis-stars">⭐⭐⭐⭐⭐</div>
+            <p class="avis-text">"Ça sent très bon"</p>
+            <div class="avis-nom">— Iris</div>
+          </div>
+          <div class="avis-card">
+            <div class="avis-stars">⭐⭐⭐⭐⭐</div>
+            <p class="avis-text">"Ça sent hyper bon… Ça dure dans les habits aussi"</p>
+            <div class="avis-nom">— Vanité</div>
+          </div>
+          <div class="avis-card">
+            <div class="avis-stars">⭐⭐⭐⭐⭐</div>
+            <p class="avis-text">"Ça sent tellement bon"</p>
+            <div class="avis-nom">— Joséphine</div>
+          </div>
+          <div class="avis-card">
+            <div class="avis-stars">⭐⭐⭐⭐⭐</div>
+            <p class="avis-text">"J'aime beaucoup les senteurs"</p>
+            <div class="avis-nom">— Hope</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chouchous-banner">
+      <img src="https://i.pinimg.com/736x/8d/60/d3/8d60d376e6a7503d1b8f36e64078cb21.jpg" alt="Chouchous" />
+      <div class="chouchous-overlay"></div>
+      <div class="chouchous-content">
+        <p class="section-eyebrow light">Sélection exclusive</p>
+        <h2>Nos Chouchous</h2>
+        <p>Des scrunchies tendance pour compléter votre style avec élégance.</p>
+        <button class="btn-dark" data-page="femme" data-filter="choauchou">Découvrir les chouchous</button>
+      </div>
+    </section>
+
+    <section class="cta-wa">
+      <p class="section-eyebrow">Conseil personnalisé</p>
+      <h2>Besoin d'aide pour choisir votre parfum ?</h2>
+      <p>Nous sommes disponible pour vous guider vers la senteur qui vous correspond. Contactez-nous directement sur WhatsApp.</p>
+      <a class="btn-dark" href="https://wa.me/22958774871" target="_blank"><i class="fab fa-whatsapp"></i> Discuter sur WhatsApp</a>
+    </section>
+ </div>
+  <!-- PAGE FEMME -->
+  <div class="page hidden" id="page-femme">
+    <section class="page-hero">
+      <img src="images/hero_femmes.png" alt="Collection Femme" />
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <p class="hero-eyebrow">Collection</p>
+        <h1>Femme</h1>
+        <p>Des fragrances délicates et envoûtantes qui célèbrent la féminité dans toute sa splendeur.</p>
+      </div>
+    </section>
+    <section class="collection-layout section-pad">
+      <div class="container">
+        <div class="collection-grid">
+          <aside class="sidebar">
+            <div class="sidebar-box">
+              <h5>Catégorie</h5>
+              <ul class="sidebar-filters" id="femmeFilters">
+                <li class="sf-item active" data-cat="all">Tout</li>
+                <li class="sf-item" data-cat="parfum">Parfums</li>
+                <li class="sf-item" data-cat="deodorant">Déodorants</li>
+                <li class="sf-item" data-cat="brume">Brumes</li>
+                <li class="sf-item" data-cat="chouchou">Chouchous</li>
+              </ul>
+            </div>
+          </aside>
+          <div class="collection-products">
+            <span class="prod-count" id="femmeCount"></span>
+            <div class="products-grid" id="femmeGrid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-wa">
+      <p class="section-eyebrow">Conseil personnalisé</p>
+      <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
+      <p>Contactez-nous directement, nous avons peut-être ce qu'il vous faut.</p>
+      <a class="btn-dark" href="https://wa.me/22958774871" target="_blank"><i class="fab fa-whatsapp"></i> Contacter sur WhatsApp</a>
+    </section>
+  </div>
+
+  <!-- PAGE HOMME -->
+  <div class="page hidden" id="page-homme">
+    <section class="page-hero">
+      <img src="images/hero_homme.png" alt="Collection Homme" />
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <p class="hero-eyebrow">Collection</p>
+        <h1>Homme</h1>
+        <p>Des senteurs intenses et affinées pour l'homme moderne qui s'impose avec élégance.</p>
+      </div>
+    </section>
+    <section class="collection-layout section-pad">
+      <div class="container">
+        <div class="collection-grid">
+          <aside class="sidebar">
+            <div class="sidebar-box">
+              <h5>Catégorie</h5>
+              <ul class="sidebar-filters" id="hommeFilters">
+                <li class="sf-item active" data-cat="all">Tout</li>
+                <li class="sf-item" data-cat="parfum">Parfums</li>
+                <li class="sf-item" data-cat="deodorant">Déodorants</li>
+              </ul>
+            </div>
+          </aside>
+          <div class="collection-products">
+            <span class="prod-count" id="hommeCount"></span>
+            <div class="products-grid" id="hommeGrid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-wa">
+      <p class="section-eyebrow">Conseil personnalisé</p>
+      <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
+      <p>Contactez-nous directement, nous avons peut-être ce qu'il vous faut.</p>
+      <a class="btn-dark" href="https://wa.me/22958774871" target="_blank"><i class="fab fa-whatsapp"></i> Contacter sur WhatsApp</a>
+    </section>
+  </div>
+
+  <!-- PAGE MIXTE -->
+  <div class="page hidden" id="page-mixte">
+    <section class="page-hero">
+      <img src="images/hero_mixte.png" alt="Collection Mixte" />
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content">
+        <p class="hero-eyebrow">Collection</p>
+        <h1>Produits Mixtes</h1>
+        <p>Des fragrances équilibrées qui transcendent les genres et s'adaptent à toutes les personnalités.</p>
+      </div>
+    </section>
+    <section class="collection-layout section-pad">
+      <div class="container">
+        <div class="collection-grid">
+          <aside class="sidebar">
+            <div class="sidebar-box">
+              <h5>Catégorie</h5>
+              <ul class="sidebar-filters" id="mixteFilters">
+                <li class="sf-item active" data-cat="all">Tout</li>
+                <li class="sf-item" data-cat="parfum">Parfums</li>
+                <li class="sf-item" data-cat="deodorant">Déodorants</li>
+                <li class="sf-item" data-cat="brume">Brumes</li>
+                <li class="sf-item" data-cat="huile">Huiles de corps</li>
+              </ul>
+            </div>
+          </aside>
+          <div class="collection-products">
+            <span class="prod-count" id="mixteCount"></span>
+            <div class="products-grid" id="mixteGrid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-wa">
+      <p class="section-eyebrow">Conseil personnalisé</p>
+      <h2>Vous ne trouvez pas ce que vous cherchez ?</h2>
+      <p>Contactez-nous directement, nous avons peut-être ce qu'il vous faut.</p>
+      <a class="btn-dark" href="https://wa.me/22958774871" target="_blank"><i class="fab fa-whatsapp"></i> Contacter sur WhatsApp</a>
+    </section>
+  </div>
+
+  <!-- PAGE À PROPOS -->
+  <div class="page hidden" id="page-apropos">
+    <section class="flat-hero">
+      <p class="section-eyebrow">Notre histoire</p>
+      <h1>À propos de Clarisse</h1>
+    </section>
+    <section class="apropos-section section-pad">
+      <div class="container">
+        <div class="apropos-grid">
+          <img src="https://i.pinimg.com/736x/21/3f/de/213fde89950056c16fb4df753b42a1b1.jpg" alt="Clarisse VIANOU" />
+          <div class="apropos-text">
+            <p class="section-eyebrow">Notre mission</p>
+            <h2>L'art de sentir bon, chaque jour</h2>
+            <p>Notre Boutique est née d'une passion profonde pour les belles senteurs et l'élégance au quotidien. Basée à Cotonou, notre boutique propose une sélection rigoureuse de parfums, brumes, déodorants et huiles de corps de qualité premium.</p>
+            <p>Nous croyons que chaque personne mérite de se sentir belle, confiante et unique. C'est pourquoi nous sélectionnons avec soin chaque produit pour vous offrir le meilleur de la parfumerie accessible.</p>
+            <p>Et parce que le style ne s'arrête pas à la senteur, nous confectionnons nous-même nos chouchous à la main — des accessoires tendance et doux pour les cheveux, pensés pour compléter votre look avec élégance.</p>
+          </div>
+        </div>
+        <div class="values-grid">
+          <div class="value-card"><i class="fas fa-star"></i><h4>Qualité premium</h4><p>Des produits soigneusement sélectionnés pour leur excellence.</p></div>
+          <div class="value-card"><i class="fas fa-heart"></i><h4>Passion</h4><p>L'amour des belles senteurs au cœur de chaque choix.</p></div>
+          <div class="value-card"><i class="fas fa-truck"></i><h4>Livraison rapide</h4><p>Livraison à Cotonou et ses environs en un temps record.</p></div>
+          <div class="value-card"><i class="fab fa-whatsapp"></i><h4>Service client</h4><p>Disponibles 7j/7 pour vous conseiller via WhatsApp.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PAGE CONTACT -->
+  <div class="page hidden" id="page-contact">
+    <section class="flat-hero">
+      <p class="section-eyebrow">Nous sommes là pour vous</p>
+      <h1>Contact</h1>
+    </section>
+    <section class="contact-section section-pad">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-form-side">
+            <h2>Envoyez-nous un message</h2>
+            <div class="contact-form">
+              <div class="form-group"><label>Nom complet</label><input type="text" placeholder="Votre nom" id="contactNom" /></div>
+              <div class="form-group"><label>Email</label><input type="email" placeholder="votre@email.com" id="contactEmail" /></div>
+              <div class="form-group"><label>Message</label><textarea placeholder="Comment pouvons-nous vous aider ?" id="contactMsg"></textarea></div>
+              <button class="btn-dark btn-full" id="sendWa"><i class="fas fa-paper-plane"></i> Envoyer via WhatsApp</button>
+            </div>
+          </div>
+          <div class="contact-info-side">
+            <h2>Informations</h2>
+            <div class="contact-cards">
+              <div class="contact-card"><div class="cc-icon"><i class="fas fa-map-marker-alt"></i></div><div><p class="cc-label">Adresse</p><p class="cc-val">Cotonou, Bénin</p></div></div>
+              <div class="contact-card"><div class="cc-icon"><i class="fas fa-phone"></i></div><div><p class="cc-label">Téléphone</p><p class="cc-val">01 53 48 40 70</p></div></div>
+              <div class="contact-card"><div class="cc-icon"><i class="fas fa-envelope"></i></div><div><p class="cc-label">Email</p><p class="cc-val">clarissevianou8@gmail.com</p></div></div>
+              <div class="contact-card"><div class="cc-icon"><i class="fab fa-whatsapp"></i></div><div><p class="cc-label">WhatsApp</p><p class="cc-val">Disponible 7j/7 de 8h à 20h</p></div></div>
+            </div>
+            <div class="wa-quick">
+              <h4>Commande rapide</h4>
+              <p>Pour une réponse immédiate, contactez-nous directement sur WhatsApp.</p>
+              <a class="btn-pink" href="https://wa.me/22958774871" target="_blank"><i class="fab fa-whatsapp"></i> Ouvrir WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SHARED FOOTER -->
+  <footer class="footer"><div class="footer-inner container"><div class="footer-brand"><div class="footer-logo"><span class="logo-clarisse">Clarisse</span><span class="logo-boutique">Boutique</span></div><p>Votre boutique de beauté premium à Cotonou.</p><div class="footer-socials"><a href="https://instagram.com/Cla_risso_8" target="_blank"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook"></i></a><a href="https://wa.me/22958774871" target="_blank"><i class="fab fa-whatsapp"></i></a></div></div><div class="footer-col"><h4>Navigation</h4><ul><li><a href="#" data-page="accueil">Accueil</a></li><li><a href="#" data-page="femme">Femme</a></li><li><a href="#" data-page="homme">Homme</a></li><li><a href="#" data-page="mixte">Mixte</a></li><li><a href="#" data-page="apropos">À Propos</a></li><li><a href="#" data-page="contact">Contact</a></li></ul></div><div class="footer-col"><h4>Catégories</h4><ul><li><a href="#" data-page="femme" data-filter="parfum">Parfums</a></li><li><a href="#" data-page="femme" data-filter="deodorant">Déodorants</a></li><li><a href="#" data-page="mixte" data-filter="brume">Brumes</a></li><li><a href="#" data-page="mixte" data-filter="huile">Huiles de corps</a></li><li><a href="#" data-page="femme" data-filter="chouchou">Chouchous</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="footer-contact-list"><li><i class="fas fa-map-marker-alt"></i> Cotonou, Bénin</li><li><i class="fas fa-phone"></i> 01 53 48 40 70</li><li><i class="fab fa-whatsapp"></i> 229 58 77 48 71</li><li><i class="fas fa-envelope"></i> clarissevianou8@gmail.com</li></ul></div></div><div class="footer-bottom"><div class="container footer-bottom-inner"><p>© 2025 Clarisse Boutique. Tous droits réservés.</p></div></div></footer>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <div class="modal-img"><img src="" alt="" id="modalImg" /></div>
+      <div class="modal-info">
+        <div class="modal-tags" id="modalTags"></div>
+        <h2 class="modal-name" id="modalName"></h2>
+        <p class="modal-price" id="modalPrice"></p>
+        <hr class="modal-sep"/>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-badges">
+          <span><i class="fas fa-star"></i> Qualité premium</span>
+          <span><i class="fas fa-truck"></i> Livraison rapide</span>
+          <span><i class="fas fa-magic"></i> Senteur longue durée</span>
+          <span><i class="fab fa-whatsapp"></i> Conseil WhatsApp</span>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-dark btn-full" id="modalAddCart"><i class="fas fa-shopping-bag"></i> Ajouter au panier</button>
+          <a class="btn-pink btn-full" id="modalWa" href="#" target="_blank"><i class="fab fa-whatsapp"></i> Commander via WhatsApp</a>
+        </div>
+        <p class="modal-note">Livraison à Cotonou et environs · Paiement à la livraison disponible</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay hidden" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Mon Panier</h3>
+      <button id="closeCart"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty-state">
+        <p>Votre panier est vide.</p>
+        <small>Découvrez nos produits et ajoutez vos favoris</small>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row"><span>Total</span><span id="cartTotal">0 FCFA</span></div>
+      <a href="#" class="btn-dark btn-full" id="checkoutBtn" target="_blank"><i class="fab fa-whatsapp"></i> Commander via WhatsApp</a>
+    </div>
+  </aside>
+
+  <!-- SEARCH OVERLAY -->
+  <div class="search-overlay hidden" id="searchOverlay">
+    <div class="search-panel">
+      <div class="search-header">
+        <div class="search-input-wrap">
+          <i class="fas fa-search search-icon-input"></i>
+          <input type="text" id="searchInput" placeholder="Rechercher un parfum, déodorant…" autocomplete="off" />
+        </div>
+        <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="search-body">
+        <div class="search-results" id="searchResults"></div>
+        <div class="search-empty hidden" id="searchEmpty">
+          <i class="fas fa-search"></i>
+          <p>Aucun produit trouvé</p>
+          <small>Essayez un autre mot-clé</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
