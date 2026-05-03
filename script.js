@@ -33,10 +33,10 @@ const PRODUCTS = [
 
   // FEMME – Chouchous
   { id:7, name:'Chouchou 2 couleurs', cat:'chouchou', genre:'femme', price:1500,
-    img:'https://i.pinimg.com/736x/ea/8a/90/ea8a900e00218a275e8410eb647d2c1f.jpg', badge:null,
+    img:'images/chouchou_femmes.png', badge:null,
     desc:'Scrunchie tendance en deux couleurs assorties. Doux pour les cheveux et parfait pour toutes les occasions.' },
   { id:8, name:'Chouchou 1 couleur', cat:'chouchou', genre:'femme', price:1000,
-    img:'https://i.pinimg.com/736x/66/16/5d/66165d1d4057ddd1507e37ca4174d1cb.jpg', badge:null,
+    img:'images/chouchou_femme.png', badge:null,
     desc:'Scrunchie classique en une couleur unie. Élégant, doux et polyvalent pour toutes les tenues.' },
 
   // HOMME – Parfums
