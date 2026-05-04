@@ -35,7 +35,7 @@ const PRODUCTS = [
   { id:8, name:'Chouchou 1 couleur', cat:'chouchou', genre:'femme', price:1000,
     img:'images/chouchou_une_couleur_femme.jpeg', badge:null,
     desc:'Scrunchie classique en une couleur unie. Élégant, doux et polyvalent pour toutes les tenues.' },
-  { id:26, name:'Chouchou 2 couleurs', cat:'chouchou', genre:'femme', price:1500,
+  { id:21, name:'Chouchou 2 couleurs', cat:'chouchou', genre:'femme', price:1500,
     img:'images/chouchou_deuxx_couleurs_femmes.jpeg', badge:null,
     desc:'L’accessoire incontournable décliné en duo de nuances stylées pour pimper toutes tes coiffures. Un toucher soyeux qui respecte ta fibre capillaire tout en ajoutant une touche chic à tes looks, du matin au soir.' },
 
@@ -93,9 +93,6 @@ const PRODUCTS = [
     desc:'Une brume légère et poétique aux notes florales et musquées. Une caresse parfumée qui dure toute la journée.' },
 
   // MIXTE – Huiles de corps
-  { id:21, name:'Fidèle & Infidèle', cat:'huile', genre:'mixte', price:500,
-    img:'images/fidel_fidel_mixte.png', badge:null,
-    desc:'Deux huiles corps complémentaires, fidèles à leur promesse de soin et de douceur pour une peau nourrie en profondeur.' },
   { id:22, name:'Vaseline', cat:'huile', genre:'mixte', price:5000,
     img:'images/vaseline_huile_mixte.jpg', badge:null,
     desc:'Une huile corps Vaseline premium, riche et nourrissante. Hydratation profonde et éclat naturel pour une peau sublimée.' },
