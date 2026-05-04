@@ -69,9 +69,6 @@ const PRODUCTS = [
   { id:15, name:'Mosuf', cat:'parfum', genre:'mixte', price:2500,
     img:'images/mosuf_parfum_mixte.jpg', badge:null,
     desc:'Une fragrance boisée et ambrée aux notes profondes et mystérieuses. Polyvalente et envoûtante pour chaque moment.' },
-  { id:16, name:'Fidèle', cat:'parfum', genre:'mixte', price:500,
-    img:'images/fidel_fidel_mixte.png', badge:null,
-    desc:'Une fragrance fidèle à son nom, aux senteurs durables et rassurantes. Un classique indémodable pour toutes les saisons.' },
   { id:7, name:'Parfum et Déodorant Elément', cat:'parfum', genre:'mixte', price:2500,
     img:'images/element_parfum_mixte.jpeg', badge:null,
     desc:'Un classique 3-en-1 aux notes rassurantes, conçu pour s\'adapter à toutes les peaux et traverser les saisons avec assurance.' },
@@ -93,9 +90,12 @@ const PRODUCTS = [
     desc:'Une brume légère et poétique aux notes florales et musquées. Une caresse parfumée qui dure toute la journée.' },
 
   // MIXTE – Huiles de corps
-  { id:22, name:'Vaseline', cat:'huile', genre:'mixte', price:5000,
+  { id:16, name:'Vaseline', cat:'huile', genre:'mixte', price:5000,
     img:'images/vaseline_huile_mixte.jpg', badge:null,
     desc:'Une huile corps Vaseline premium, riche et nourrissante. Hydratation profonde et éclat naturel pour une peau sublimée.' },
+  { id:26, name:'Fidèle', cat:'parfum', genre:'mixte', price:500,
+    img:'images/fidel_fidel_mixte.png', badge:null,
+    desc:'Une fragrance fidèle à son nom, aux senteurs durables et rassurantes. Un classique indémodable pour toutes les saisons.' },
   { id:24, name:'Infidèle', cat:'huile', genre:'mixte', price:500,
     img:'images/infidele_huile_mixte.jpg', badge:null,
     desc:'Une huile corps légère aux senteurs subtiles et addictives. Idéale pour nourrir et parfumer la peau subtilement.' },
