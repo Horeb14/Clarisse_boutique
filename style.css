@@ -41,6 +41,7 @@ input,textarea{font-family:var(--font-b)}
 .section-eyebrow{
   font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
   color:var(--pink2);font-weight:500;margin-bottom:10px;display:block;
+  text-align:center;
 }
 .section-title{
   font-family:var(--font-d);font-size:clamp(2rem,4vw,3rem);
@@ -605,11 +606,15 @@ input,textarea{font-family:var(--font-b)}
 @keyframes slideInFromRight{from{transform:translateX(100%)}to{transform:translateX(0)}}
 
 /* ---- AVIS GRID ---- */
-.avis-grid{display:flex; flex-wrap:wrap; gap:20px; justify-content:center}
-.avis-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;text-align:center;max-width:250px}
-.avis-stars{font-size:1.2rem;margin-bottom:10px}
-.avis-text{font-size:.9rem;color:var(--text2);line-height:1.6;margin-bottom:12px;font-style:italic}
-.avis-nom{font-size:.8rem;color:var(--pink2);font-weight:500}
+.avis-grid{display:flex; flex-wrap:nowrap; overflow-x:auto; gap:16px; padding:20px 0; scroll-behavior:smooth; -webkit-overflow-scrolling:touch; justify-content:flex-start}
+.avis-grid::-webkit-scrollbar{height:6px}
+.avis-grid::-webkit-scrollbar-track{background:var(--cream2);border-radius:10px}
+.avis-grid::-webkit-scrollbar-thumb{background:var(--pink2);border-radius:10px}
+.avis-grid::-webkit-scrollbar-thumb:hover{background:var(--pink)}
+.avis-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;text-align:center;width:220px;flex-shrink:0;display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.avis-stars{font-size:1.2rem;margin:0;line-height:1}
+.avis-text{font-size:.85rem;color:var(--text2);line-height:1.5;margin:0;font-style:italic;flex:1;display:flex;align-items:center;justify-content:center;word-break:break-word}
+.avis-nom{font-size:.78rem;color:var(--pink2);font-weight:500;margin:0;padding-top:4px}
 
 /* ============================================================
    RESPONSIVE
