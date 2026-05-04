@@ -93,7 +93,7 @@ const PRODUCTS = [
   { id:16, name:'Vaseline', cat:'huile', genre:'mixte', price:5000,
     img:'images/vaseline_huile_mixte.jpg', badge:null,
     desc:'Une huile corps Vaseline premium, riche et nourrissante. Hydratation profonde et éclat naturel pour une peau sublimée.' },
-  { id:26, name:'Fidèle', cat:'parfum', genre:'mixte', price:500,
+  { id:26, name:'Fidèle', cat:'huile', genre:'mixte', price:500,
     img:'images/fidel_fidel_mixte.png', badge:null,
     desc:'Une fragrance fidèle à son nom, aux senteurs durables et rassurantes. Un classique indémodable pour toutes les saisons.' },
   { id:24, name:'Infidèle', cat:'huile', genre:'mixte', price:500,
