@@ -14,6 +14,9 @@ const PRODUCTS = [
   { id:3, name:'Valentino', cat:'parfum', genre:'femme', price:6000,
     img:'images/valentino_parfum_mixte.jpg', badge:'Best-seller',
     desc:'Un sillage floral et poudré d\'une douceur envoûtante. Romantique et raffiné, il habille la peau d\'une aura inoubliable.' },
+  { id:28, name:'Vanilla Voyage', cat:'parfum', genre:'femme', price:20000,
+    img:'images/vanilla_voyage_parfum_femme.jpg', badge:null,
+    desc:'Une étreinte gourmande et onctueuse où le caramel fondant et le beurre crémeux s\'unissent à une vanille profonde pour offrir un sillage chaleureux et irrésistiblement réconfortant.' },
 
   // FEMME – Déodorants
   { id:23, name:'Déodorant à boule Confetti', cat:'deodorant', genre:'femme', price:1500,
@@ -49,6 +52,9 @@ const PRODUCTS = [
   { id:11, name:'calvin klein one', cat:'parfum', genre:'homme', price:5500,
     img:'images/calvin_klein_one_parfum_homme.jpg', badge:null,
     desc:'Un shot de fraîcheur vive qui s\'ancre dans la force brute des bois précieux. C\'est l\'atout invisible pour marquer son territoire et rester impeccable du matin au soir.' },
+  { id:27, name:'Tom Ford', cat:'parfum', genre:'homme', price:6000,
+    img:'images/tom_ford_parfum_homme.jpeg', badge:null,
+    desc:'L\'éclat vif des agrumes rencontre la profondeur onctueuse du santal pour créer un sillage racé, symbole dun charisme absolu et d\'une assurance sereine.' },
   { id:25, name:'Bleu de Channel', cat:'parfum', genre:'homme', price:5500,
     img:'images/bleu_de_chanel_parfum_homme.jpg', badge:null,
     desc:'L\'équilibre magistral entre la fraîcheur vive des agrumes et l\'élégance profonde du bois de santal de Nouvelle-Calédonie. Une fragrance aromatique et racée qui impose une assurance sereine et un charisme absolu.' },
@@ -114,6 +120,7 @@ function saveCart() {
 
 /* ---------- NAVIGATION SPA ---------- */
 function showPage(pageId, filterCat, pushState = true) {
+  window.scrollTo({ top: 0 });
   document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
   const target = document.getElementById('page-' + pageId);
   if (target) target.classList.remove('hidden');
@@ -125,8 +132,6 @@ function showPage(pageId, filterCat, pushState = true) {
   document.getElementById('burger').classList.remove('open');
 
   closeSearch();
-
-  window.scrollTo({ top: 0 });
 
   // Gestion historique navigateur (bouton retour mobile)
   if (pushState) {
