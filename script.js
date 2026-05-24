@@ -35,10 +35,10 @@ const PRODUCTS = [
     desc:'Une brume sucrée et enveloppante aux notes de fruits rouges et de vanille. Un nuage de douceur pour sublimer votre peau.' },
 
   // FEMME – Chouchous
-  { id:8, name:'Chouchou 1 couleur', cat:'chouchou', genre:'femme', price:1000,
+  { id:8, name:'Chouchou Uni', cat:'chouchou', genre:'femme', price:1000,
     img:'images/chouchou_une_couleur_femme.jpeg', badge:null,
     desc:'Scrunchie classique en une couleur unie. Élégant, doux et polyvalent pour toutes les tenues.' },
-  { id:21, name:'Chouchou 2 couleurs', cat:'chouchou', genre:'femme', price:1500,
+  { id:21, name:'Chouchou Bi-color', cat:'chouchou', genre:'femme', price:1500,
     img:'images/chouchou_deuxx_couleurs_femmes.jpeg', badge:null,
     desc:'L’accessoire incontournable décliné en duo de nuances stylées pour pimper toutes tes coiffures. Un toucher soyeux qui respecte ta fibre capillaire tout en ajoutant une touche chic à tes looks, du matin au soir.' },
 
@@ -199,6 +199,12 @@ function renderCollection(genre, catFilter) {
   let prods = PRODUCTS.filter(p => p.genre === genre);
   if (catFilter && catFilter !== 'all') prods = prods.filter(p => p.cat === catFilter);
 
+  prods.sort((a, b) => {
+    if (a.cat === 'chouchou' && b.cat !== 'chouchou') return 1;
+    if (a.cat !== 'chouchou' && b.cat === 'chouchou') return -1;
+    return a.name.localeCompare(b.name, 'fr');
+  });
+
   countEl && (countEl.textContent = prods.length + ' produit' + (prods.length > 1 ? 's' : ''));
   grid.innerHTML = prods.map(productCardHTML).join('');
   bindCardEvents(grid);
@@ -318,6 +324,17 @@ function openModal(id) {
   const badgeHTML = prod.badge ? `<span class="modal-tag badge">${prod.badge}</span>` : '';
   document.getElementById('modalTags').innerHTML =
     `<span class="modal-tag genre">${genreLabel}</span><span class="modal-tag type">${typeLabel}</span>${badgeHTML}`;
+
+  const badgesHTML = prod.cat === 'chouchou'
+    ? `<span><i class="fas fa-hands"></i> Fait à la main</span>
+       <span><i class="fas fa-magic"></i> Au crochet</span>
+       <span><i class="fas fa-feather-alt"></i> Doux pour les cheveux</span>
+       <span><i class="fas fa-truck"></i> Livraison rapide</span>`
+    : `<span><i class="fas fa-star"></i> Qualité premium</span>
+       <span><i class="fas fa-truck"></i> Livraison rapide</span>
+       <span><i class="fas fa-magic"></i> Senteur longue durée</span>
+       <span><i class="fab fa-whatsapp"></i> Conseil WhatsApp</span>`;
+  document.getElementById('modalBadges').innerHTML = badgesHTML;
 
   const waMsg = encodeURIComponent(`Salut Clarisse, j'espère que tu vas bien 😊\nJe souhaite commander : ${prod.name} – ${formatPrice(prod.price)}`);
   document.getElementById('modalWa').href = `https://wa.me/22958774871?text=${waMsg}`;
