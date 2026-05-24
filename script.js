@@ -2,110 +2,12 @@
    CLARISSE BOUTIQUE – script.js
 ============================================================ */
 
+/* ---------- SUPABASE ---------- */
+const SUPABASE_URL = "https://zwanhqbugrjmmeebmhtt.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp3YW5ocWJ1Z3JqbW1lZWJtaHR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2MTg2NDMsImV4cCI6MjA5NTE5NDY0M30.x1ug6h55FogY_gqkJYx8zmLqYPr-_ldV33SiwgOZAbM";
+
 /* ---------- DATA PRODUITS ---------- */
-const PRODUCTS = [
-  // FEMME – Parfums
-  { id:1, name:'Sugar Candy', cat:'parfum', genre:'femme', price:9000,
-    img:'images/sugar_candy_parfum_femme.jpg', badge:'Coup de cœur',
-    desc:'Une explosion de douceur florale aux notes de sucre et de pétales. Féminine et addictive, elle laisse une trace lumineuse.' },
-  { id:2, name:'Ka Ly', cat:'parfum', genre:'femme', price:4500,
-    img:'images/ka_ly_parfum_femme.jpg', badge:'Best-seller',
-    desc:'Une féminité délicate aux effluves de fleurs blanches et de bois tendre. Poétique et intime, elle révèle votre grâce naturelle.' },
-  { id:3, name:'Valentino', cat:'parfum', genre:'femme', price:6000,
-    img:'images/valentino_parfum_mixte.jpg', badge:'Best-seller',
-    desc:'Un sillage floral et poudré d\'une douceur envoûtante. Romantique et raffiné, il habille la peau d\'une aura inoubliable.' },
-  { id:28, name:'Vanilla Voyage', cat:'parfum', genre:'femme', price:20000,
-    img:'images/vanilla_voyage_parfum_femme.jpg', badge:null,
-    desc:'Une étreinte gourmande et onctueuse où le caramel fondant et le beurre crémeux s\'unissent à une vanille profonde pour offrir un sillage chaleureux et irrésistiblement réconfortant.' },
-
-  // FEMME – Déodorants
-  { id:23, name:'Déodorant à boule Confetti', cat:'deodorant', genre:'femme', price:1500,
-    img:'images/confetti_london_deodorant_femme.png', badge:null,
-    desc:'Un déodorant frais et féminin signé Confetti London, aux notes légères et florales. Protection longue durée avec une touche de douceur Londres.' },
-  { id:4, name:'Confetti', cat:'deodorant', genre:'femme', price:2500,
-    img:'images/confetti_deodorant_femme.jpg', badge:null,
-    desc:'Un déodorant pétillant aux notes fruitées et florales. Légèreté et bonne humeur garanties tout au long de la journée.' },
-  { id:5, name:'Nivea Pearl & Beauty', cat:'deodorant', genre:'femme', price:1500,
-    img:'images/nivea_deodorant_femme.jpg', badge:null,
-    desc:'Une protection douce aux extraits de perle pour une peau soyeuse. Fraîcheur longue durée et soin en un geste délicat.' },
-
-  // FEMME – Brumes
-  { id:6, name:'Candy Crush', cat:'brume', genre:'femme', price:1200,
-    img:'images/candy_crush_brume_femme.jpg', badge:null,
-    desc:'Une brume sucrée et enveloppante aux notes de fruits rouges et de vanille. Un nuage de douceur pour sublimer votre peau.' },
-
-  // FEMME – Chouchous
-  { id:8, name:'Chouchou Uni', cat:'chouchou', genre:'femme', price:1000,
-    img:'images/chouchou_une_couleur_femme.jpeg', badge:null,
-    desc:'Scrunchie classique en une couleur unie. Élégant, doux et polyvalent pour toutes les tenues.' },
-  { id:21, name:'Chouchou Bi-color', cat:'chouchou', genre:'femme', price:1500,
-    img:'images/chouchou_deuxx_couleurs_femmes.jpeg', badge:null,
-    desc:'L’accessoire incontournable décliné en duo de nuances stylées pour pimper toutes tes coiffures. Un toucher soyeux qui respecte ta fibre capillaire tout en ajoutant une touche chic à tes looks, du matin au soir.' },
-
-  // HOMME – Parfums
-  { id:9, name:'Balea Men', cat:'parfum', genre:'homme', price:2000,
-    img:'images/balea_men_parfum_hommes.jpg', badge:'Best-seller',
-    desc:'Un boisé aromatique d\'une intensité rare, aux accords frais de cèdre et d\'encens. Pour l\'homme qui s\'impose avec élégance.' },
-  { id:10, name:'Calvin Klein', cat:'parfum', genre:'homme', price:5500,
-    img:'images/calvin_klein_parfum_homme.jpg', badge:null,
-    desc:'Un départ fusant de mandarine et de poivre noir pour l\'énergie, sur un fond puissant de bois de vétiver et de cuir. C\'est le mix parfait entre fraîcheur brute et virilité boisée pour tenir la journée avec style.' },
-  { id:11, name:'calvin klein one', cat:'parfum', genre:'homme', price:5500,
-    img:'images/calvin_klein_one_parfum_homme.jpg', badge:null,
-    desc:'Un shot de fraîcheur vive qui s\'ancre dans la force brute des bois précieux. C\'est l\'atout invisible pour marquer son territoire et rester impeccable du matin au soir.' },
-  { id:27, name:'Tom Ford', cat:'parfum', genre:'homme', price:6000,
-    img:'images/tom_ford_parfum_homme.jpeg', badge:null,
-    desc:'L\'éclat vif des agrumes rencontre la profondeur onctueuse du santal pour créer un sillage racé, symbole dun charisme absolu et d\'une assurance sereine.' },
-  { id:25, name:'Bleu de Channel', cat:'parfum', genre:'homme', price:5500,
-    img:'images/bleu_de_chanel_parfum_homme.jpg', badge:null,
-    desc:'L\'équilibre magistral entre la fraîcheur vive des agrumes et l\'élégance profonde du bois de santal de Nouvelle-Calédonie. Une fragrance aromatique et racée qui impose une assurance sereine et un charisme absolu.' },
-
-
-  // HOMME – Déodorants
-  { id:12, name:'Balea Men', cat:'deodorant', genre:'homme', price:2000,
-    img:'images/balea_men_deodorant_homme.jpg', badge:null,
-    desc:'Un déodorant masculin efficace aux senteurs fraîches et boisées. Idéal pour affronter la journée avec assurance.' },
-  { id:13, name:'Riggs', cat:'deodorant', genre:'homme', price:2000,
-    img:'images/riggs_deodorant_homme.jpg', badge:null,
-    desc:'Un déodorant longue durée aux notes intenses et viriles. Protection maximale pour les hommes actifs.' },
-
-  // MIXTE – Parfums
-  { id:14, name:'Caramel Cascade', cat:'parfum', genre:'mixte', price:3500,
-    img:'images/caramel_cascade_parfum_femme.jpg', badge:'Best-seller',
-    desc:'Une gourmandise olfactive aux notes caramel et vanille. Enveloppante et douce, elle séduit par sa chaleur sucrée irrésistible.' },
-  { id:15, name:'Mosuf', cat:'parfum', genre:'mixte', price:2500,
-    img:'images/mosuf_parfum_mixte.jpg', badge:null,
-    desc:'Une fragrance boisée et ambrée aux notes profondes et mystérieuses. Polyvalente et envoûtante pour chaque moment.' },
-  { id:7, name:'Parfum et Déodorant Elément', cat:'parfum', genre:'mixte', price:2500,
-    img:'images/element_parfum_mixte.jpeg', badge:null,
-    desc:'Un classique 3-en-1 aux notes rassurantes, conçu pour s\'adapter à toutes les peaux et traverser les saisons avec assurance.' },
-
-  // MIXTE – Déodorants
-  { id:17, name:'Balea', cat:'deodorant', genre:'mixte', price:2000,
-    img:'images/balea_deodorant_mixte.jpg', badge:null,
-    desc:'Un soin déodorant efficace aux senteurs fraîches et neutres. Idéal pour une routine quotidienne simple et raffinée.' },
-  { id:18, name:'Dove', cat:'deodorant', genre:'mixte', price:2500,
-    img:'images/dove_deodorant_mixte.jpg', badge:null,
-    desc:'Une protection douce et hydratante pour une peau soyeuse. Fraîcheur garantie toute la journée avec soin.' },
-  { id:19, name:'Nivea', cat:'deodorant', genre:'mixte', price:1500,
-    img:'images/nivea_deodorant_mixte.jpg', badge:null,
-    desc:'Un déodorant efficace et doux pour une protection longue durée. Fraîcheur intense et confort au quotidien.' },
-
-  // MIXTE – Brumes
-  { id:20, name:'Phlur', cat:'brume', genre:'mixte', price:3500,
-    img:'images/phlur_brume_mixte.jpg', badge:null,
-    desc:'Une brume légère et poétique aux notes florales et musquées. Une caresse parfumée qui dure toute la journée.' },
-
-  // MIXTE – Huiles de corps
-  { id:16, name:'Vaseline', cat:'huile', genre:'mixte', price:5000,
-    img:'images/vaseline_huile_mixte.jpg', badge:null,
-    desc:'Une huile corps Vaseline premium, riche et nourrissante. Hydratation profonde et éclat naturel pour une peau sublimée.' },
-  { id:26, name:'Fidèle', cat:'huile', genre:'mixte', price:500,
-    img:'images/fidel_fidel_mixte.png', badge:null,
-    desc:'Une fragrance fidèle à son nom, aux senteurs durables et rassurantes. Un classique indémodable pour toutes les saisons.' },
-  { id:24, name:'Infidèle', cat:'huile', genre:'mixte', price:500,
-    img:'images/infidele_huile_mixte.jpg', badge:null,
-    desc:'Une huile corps légère aux senteurs subtiles et addictives. Idéale pour nourrir et parfumer la peau subtilement.' },
-];
+let PRODUCTS = [];
 
 /* ---------- BEST SELLERS (accueil) — Confetti London ajouté ---------- */
 const BESTSELLERS_IDS = [1, 2, 3, 9, 12, 15];
@@ -515,10 +417,18 @@ if (sendWaBtn) {
 }
 
 /* ---------- INIT ---------- */
-// Remplace l'état initial sans créer d'entrée en double
-history.replaceState({ page: 'accueil', filter: null }, '', '#accueil');
-showPage('accueil', null, false);
+async function init() {
+  try {
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const { data } = await db.from('products').select('*');
+    if (data) PRODUCTS = data.map(p => ({ ...p, desc: p.description }));
+  } catch (e) {
+    console.warn('Chargement produits depuis Supabase impossible:', e);
+  }
+  history.replaceState({ page: 'accueil', filter: null }, '', '#accueil');
+  showPage('accueil', null, false);
+  updateCartCount();
+  renderCart();
+}
 
-// Restaurer le compteur panier au chargement
-updateCartCount();
-renderCart();
+init();

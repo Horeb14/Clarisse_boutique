@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administration – Clarisse Boutique</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+<!-- CONNEXION -->
+<section id="loginSection">
+  <div class="login-card">
+    <div class="login-logo">
+      <h1>Clarisse Boutique</h1>
+      <p>Panneau d'administration</p>
+    </div>
+    <div class="alert alert-error" id="loginError"></div>
+    <form id="loginForm">
+      <div class="form-group" style="margin-bottom:16px">
+        <label>Email</label>
+        <input type="email" id="loginEmail" placeholder="votre@email.com" required />
+      </div>
+      <div class="form-group" style="margin-bottom:24px">
+        <label>Mot de passe</label>
+        <input type="password" id="loginPassword" placeholder="••••••••" required />
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Se connecter</button>
+    </form>
+  </div>
+</section>
+
+<!-- TABLEAU DE BORD -->
+<section id="dashboard">
+  <header class="admin-header">
+    <h1>Clarisse Boutique — Administration</h1>
+    <button class="btn btn-logout" id="logoutBtn">Déconnexion</button>
+  </header>
+
+  <div class="admin-body">
+
+    <!-- Formulaire ajout / modification -->
+    <div class="form-card">
+      <h2 class="section-title" id="formTitle">Ajouter un produit</h2>
+      <div class="alert alert-error" id="formError"></div>
+      <div class="alert alert-success" id="formSuccess"></div>
+      <form id="productForm">
+        <input type="hidden" id="productId" />
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Nom *</label>
+            <input type="text" id="prodName" placeholder="Sugar Candy" required />
+          </div>
+          <div class="form-group">
+            <label>Prix (CFA) *</label>
+            <input type="number" id="prodPrice" placeholder="5000" min="0" required />
+          </div>
+          <div class="form-group">
+            <label>Catégorie *</label>
+            <select id="prodCat" required>
+              <option value="">— Choisir —</option>
+              <option value="parfum">Parfum</option>
+              <option value="deodorant">Déodorant</option>
+              <option value="brume">Brume</option>
+              <option value="huile">Huile de corps</option>
+              <option value="chouchou">Chouchou</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Genre *</label>
+            <select id="prodGenre" required>
+              <option value="">— Choisir —</option>
+              <option value="femme">Femme</option>
+              <option value="homme">Homme</option>
+              <option value="mixte">Mixte</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Photo du produit</label>
+            <label class="upload-zone" id="uploadZone">
+              <input type="file" id="prodImgFile" accept="image/*" />
+              <img id="prodImgPreview" />
+              <span id="uploadLabel"><strong>Cliquer pour choisir une photo</strong><br/>JPG, PNG, WEBP</span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Badge (optionnel)</label>
+            <input type="text" id="prodBadge" placeholder="Best-seller" />
+          </div>
+          <div class="form-group full">
+            <label>Description *</label>
+            <textarea id="prodDesc" placeholder="Description du produit..." required></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Ajouter</button>
+          <button type="button" class="btn btn-secondary" id="cancelBtn" style="display:none">Annuler</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Liste des produits -->
+    <div class="table-card">
+      <div class="table-header">
+        <h2 class="section-title" style="margin-bottom:0;border:none">Catalogue produits</h2>
+        <span class="product-count" id="productCount"></span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Nom</th>
+            <th>Catégorie</th>
+            <th>Genre</th>
+            <th>Prix</th>
+            <th>Badge</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="admin.js"></script>
+</body>
+</html>
