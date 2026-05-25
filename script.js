@@ -50,7 +50,9 @@ function showPage(pageId, filterCat, pushState = true) {
 
 // Bouton retour natif du navigateur
 window.addEventListener('popstate', e => {
-  if (e.state && e.state.page) {
+  if (e.state && e.state.page === 'famille') {
+    renderFamillePage(e.state.famille);
+  } else if (e.state && e.state.page) {
     showPage(e.state.page, e.state.filter, false);
   } else {
     showPage('accueil', null, false);
@@ -88,7 +90,7 @@ function productCardHTML(prod) {
 function renderBestsellers() {
   const grid = document.getElementById('bestsellersGrid');
   if (!grid) return;
-  const prods = BESTSELLERS_IDS.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+  const prods = BESTSELLERS_IDS.map(id => PRODUCTS.find(p => p.id === id && !p.masque)).filter(Boolean);
   grid.innerHTML = prods.map(productCardHTML).join('');
   bindCardEvents(grid);
 }
@@ -98,7 +100,7 @@ function renderCollection(genre, catFilter) {
   const countEl = document.getElementById(genre + 'Count');
   if (!grid) return;
 
-  let prods = PRODUCTS.filter(p => p.genre === genre);
+  let prods = PRODUCTS.filter(p => p.genre === genre && !p.masque);
   if (catFilter && catFilter !== 'all') prods = prods.filter(p => p.cat === catFilter);
 
   prods.sort((a, b) => {
@@ -139,6 +141,27 @@ function bindCardEvents(container) {
     });
   });
 }
+
+/* ---------- PAGE FAMILLE ---------- */
+function renderFamillePage(famille) {
+  const prods = PRODUCTS.filter(p => p.famille === famille);
+  const titre = prods[0] ? prods[0].name.replace(/\s+(rouge|vert|bleu|noir|blanc|rose|jaune|violet|orange|beige|\d+ml)$/i, '').trim() : 'Autres formes';
+  document.getElementById('familleTitle').textContent = titre;
+  const grid = document.getElementById('familleGrid');
+  grid.innerHTML = prods.map(productCardHTML).join('');
+  bindCardEvents(grid);
+  document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+  document.getElementById('page-famille').classList.remove('hidden');
+  window.scrollTo({ top: 0 });
+}
+
+function showFamille(famille) {
+  closeModal();
+  renderFamillePage(famille);
+  history.pushState({ page: 'famille', famille }, '', '#famille');
+}
+
+document.getElementById('familleRetour').addEventListener('click', () => history.back());
 
 /* ---------- ORDER WHATSAPP (fonction manquante corrigée) ---------- */
 function orderWhatsApp(prod) {
@@ -218,7 +241,6 @@ function openModal(id) {
   document.getElementById('modalImg').src = prod.img;
   document.getElementById('modalImg').alt = prod.name;
   document.getElementById('modalName').textContent = prod.name;
-  document.getElementById('modalPrice').textContent = formatPrice(prod.price);
   document.getElementById('modalDesc').textContent = prod.desc;
 
   const genreLabel = prod.genre === 'femme' ? 'Femme' : prod.genre === 'homme' ? 'Homme' : 'Mixte';
@@ -238,8 +260,55 @@ function openModal(id) {
        <span><i class="fab fa-whatsapp"></i> Conseil WhatsApp</span>`;
   document.getElementById('modalBadges').innerHTML = badgesHTML;
 
-  const waMsg = encodeURIComponent(`Salut Clarisse, j'espère que tu vas bien 😊\nJe souhaite commander : ${prod.name} – ${formatPrice(prod.price)}`);
-  document.getElementById('modalWa').href = `https://wa.me/22958774871?text=${waMsg}`;
+  const famillEl = document.getElementById('modalFamille');
+  const autresFormes = (prod.famille && prod.famille.trim())
+    ? PRODUCTS.filter(p => p.famille === prod.famille && p.id !== prod.id)
+    : [];
+  if (autresFormes.length > 0) {
+    famillEl.innerHTML = `<button class="btn-autres-formes" id="btnVoirFormes"><i class="fas fa-th-large"></i> Voir les autres formes de ce produit (${autresFormes.length})</button>`;
+    document.getElementById('btnVoirFormes').addEventListener('click', () => showFamille(prod.famille));
+  } else {
+    famillEl.innerHTML = '';
+  }
+
+  const variantesEl = document.getElementById('modalVariantes');
+  if (prod.variantes && prod.variantes.length) {
+    const first = prod.variantes[0];
+    currentProduct = { ...prod, price: first.prix, varianteChoisie: first.label };
+    document.getElementById('modalPrice').textContent = formatPrice(first.prix);
+
+    variantesEl.innerHTML = `
+      <div class="modal-variants">
+        <span class="mv-label">Taille :</span>
+        <div class="mv-options">
+          ${prod.variantes.map((v, i) => `
+            <button class="mv-btn${i === 0 ? ' active' : ''}" data-prix="${v.prix}" data-label="${v.label}">${v.label}</button>
+          `).join('')}
+        </div>
+      </div>`;
+
+    variantesEl.querySelectorAll('.mv-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        variantesEl.querySelectorAll('.mv-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const prix = parseInt(btn.dataset.prix);
+        const label = btn.dataset.label;
+        document.getElementById('modalPrice').textContent = formatPrice(prix);
+        currentProduct = { ...prod, price: prix, varianteChoisie: label };
+        const waMsg = encodeURIComponent(`Salut Clarisse, j'espère que tu vas bien 😊\nJe souhaite commander : ${prod.name} (${label}) – ${formatPrice(prix)}`);
+        document.getElementById('modalWa').href = `https://wa.me/22958774871?text=${waMsg}`;
+      });
+    });
+
+    const waMsg = encodeURIComponent(`Salut Clarisse, j'espère que tu vas bien 😊\nJe souhaite commander : ${prod.name} (${first.label}) – ${formatPrice(first.prix)}`);
+    document.getElementById('modalWa').href = `https://wa.me/22958774871?text=${waMsg}`;
+  } else {
+    variantesEl.innerHTML = '';
+    currentProduct = prod;
+    document.getElementById('modalPrice').textContent = formatPrice(prod.price);
+    const waMsg = encodeURIComponent(`Salut Clarisse, j'espère que tu vas bien 😊\nJe souhaite commander : ${prod.name} – ${formatPrice(prod.price)}`);
+    document.getElementById('modalWa').href = `https://wa.me/22958774871?text=${waMsg}`;
+  }
 
   document.getElementById('modalOverlay').classList.remove('hidden');
   document.body.style.overflow = 'hidden';

@@ -133,10 +133,12 @@ body {
 .btn:hover { opacity: 0.85; }
 .btn:active { transform: scale(0.97); }
 
-.btn-primary  { background: #9b4d9b; color: #fff; }
+.btn-primary   { background: #9b4d9b; color: #fff; }
 .btn-secondary { background: #efefef; color: #555; }
-.btn-danger   { background: #e53935; color: #fff; }
-.btn-logout   { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+.btn-danger    { background: #e53935; color: #fff; }
+.btn-variante  { background: #e8f5e9; color: #2e7d32; }
+.btn-variante:hover { background: #c8e6c9; }
+.btn-logout    { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
 .btn-sm       { padding: 6px 12px; font-size: 0.8rem; }
 
 /* ---------- TABLE CARD ---------- */
@@ -244,6 +246,48 @@ tr:hover td { background: #fdf8fd; }
 #prodImgPreview.visible { display: block; }
 
 #uploadLabel { font-size: 0.9rem; color: #888; line-height: 1.5; }
+
+/* ---------- VARIANTE INFO ---------- */
+.variante-info {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #e8f5e9;
+  border-left: 3px solid #43a047;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: #2e7d32;
+  margin-bottom: 4px;
+  grid-column: 1 / -1;
+}
+
+/* ---------- VARIANTES ---------- */
+.variant-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.variant-row input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.variant-row input:focus {
+  outline: none;
+  border-color: #9b4d9b;
+}
+
+.variant-row .v-label { max-width: 140px; }
+.variant-row .v-price { max-width: 130px; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 640px) {

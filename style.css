@@ -771,6 +771,63 @@ input,textarea{font-family:var(--font-b)}
 }
 
 
+/* ---- BOUTON AUTRES FORMES ---- */
+.btn-autres-formes {
+  display: block;
+  width: 100%;
+  margin: 14px 0 4px;
+  padding: 10px 16px;
+  background: #fdf6f0;
+  border: 1.5px solid var(--cream2);
+  border-radius: var(--radius);
+  color: var(--brown);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-autres-formes:hover { background: #f5ece3; border-color: var(--brown); }
+.btn-autres-formes i { margin-right: 8px; }
+
+/* ---- PAGE FAMILLE ---- */
+.btn-retour {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border: 1.5px solid var(--cream2);
+  border-radius: 100px;
+  background: var(--white);
+  color: var(--text2);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-retour:hover { border-color: var(--brown); color: var(--brown); }
+
+/* ---- VARIANTES MODAL ---- */
+.modal-variants { margin: 10px 0 4px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.mv-label { font-size: 0.75rem; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+.mv-options { display: flex; gap: 8px; flex-wrap: wrap; }
+.mv-btn {
+  padding: 5px 16px;
+  border: 2px solid var(--cream2);
+  border-radius: 100px;
+  background: var(--white);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text2);
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.mv-btn:hover { border-color: var(--brown); color: var(--brown); }
+.mv-btn.active { border-color: var(--brown); background: var(--brown); color: var(--white); }
+
 /* ---- CART MOBILE FIX ---- */
 @media(max-width:480px){
   .cart-drawer{width:100vw;max-width:100vw}

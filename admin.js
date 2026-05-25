@@ -8,6 +8,7 @@ const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 let editingId = null;
 let imageActuelle = null;
+let variantMode = false;
 
 /* ---------- AUTH ---------- */
 document.getElementById('loginForm').addEventListener('submit', async e => {
@@ -50,11 +51,49 @@ async function chargerProduits() {
       <td>${p.badge ? `<span class="pill pill-badge">${p.badge}</span>` : '—'}</td>
       <td class="actions-cell">
         <button class="btn btn-sm btn-secondary" onclick="modifierProduit(${p.id})">Modifier</button>
+        <button class="btn btn-sm btn-variante" onclick="ajouterVariante(${p.id}, \`${p.name.replace(/`/g,'')}\`)">+ Variante</button>
         <button class="btn btn-sm btn-danger" onclick="supprimerProduit(${p.id}, \`${p.name.replace(/`/g,'')}\`)">Supprimer</button>
       </td>
     </tr>
   `).join('');
 }
+
+/* ---------- AJOUTER VARIANTE ---------- */
+async function ajouterVariante(parentId, parentNom) {
+  resetFormulaire();
+
+  const { data: parent } = await db.from('products').select('famille').eq('id', parentId).single();
+  const familleKey = (parent && parent.famille) ? parent.famille : 'fam-' + parentId;
+
+  if (!parent || !parent.famille) {
+    await db.from('products').update({ famille: familleKey }).eq('id', parentId);
+  }
+
+  document.getElementById('prodFamille').value = familleKey;
+  variantMode = true;
+  document.getElementById('varianteInfo').style.display = 'flex';
+  document.getElementById('varianteInfo').innerHTML = `<i class="fas fa-link"></i> Variante de : <strong>${parentNom}</strong>`;
+  document.getElementById('formTitle').textContent = 'Ajouter une variante';
+  document.getElementById('submitBtn').textContent = 'Créer la variante';
+  document.getElementById('cancelBtn').style.display = 'inline-block';
+  document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ---------- VARIANTES ---------- */
+function addVariantRow(label, prix) {
+  const list = document.getElementById('variantsList');
+  const row = document.createElement('div');
+  row.className = 'variant-row';
+  row.innerHTML = `
+    <input type="text"   class="v-label" placeholder="Libellé (ex: 50ml)"  value="${label || ''}" />
+    <input type="number" class="v-price" placeholder="Prix (CFA)" min="0"   value="${prix  || ''}" />
+    <button type="button" class="btn btn-danger btn-sm v-remove">×</button>
+  `;
+  row.querySelector('.v-remove').addEventListener('click', () => row.remove());
+  list.appendChild(row);
+}
+
+document.getElementById('addVariantBtn').addEventListener('click', () => addVariantRow('', ''));
 
 /* ---------- UPLOAD PHOTO ---------- */
 document.getElementById('prodImgFile').addEventListener('change', e => {
@@ -91,6 +130,14 @@ document.getElementById('productForm').addEventListener('submit', async e => {
     }
   }
 
+  const variantRows = document.querySelectorAll('#variantsList .variant-row');
+  const variantes = [];
+  variantRows.forEach(row => {
+    const label = row.querySelector('.v-label').value.trim();
+    const prix  = parseInt(row.querySelector('.v-price').value);
+    if (label && !isNaN(prix)) variantes.push({ label, prix });
+  });
+
   const payload = {
     name:        document.getElementById('prodName').value.trim(),
     price:       parseInt(document.getElementById('prodPrice').value),
@@ -98,8 +145,12 @@ document.getElementById('productForm').addEventListener('submit', async e => {
     genre:       document.getElementById('prodGenre').value,
     img:         imgUrl,
     badge:       document.getElementById('prodBadge').value.trim() || null,
-    description: document.getElementById('prodDesc').value.trim()
+    description: document.getElementById('prodDesc').value.trim(),
+    variantes:   variantes.length ? variantes : null,
+    famille:     document.getElementById('prodFamille').value.trim() || null
   };
+
+  if (!editingId) payload.masque = variantMode;
 
   let error;
   if (editingId) {
@@ -127,8 +178,14 @@ async function modifierProduit(id) {
   document.getElementById('prodPrice').value = data.price;
   document.getElementById('prodCat').value   = data.cat;
   document.getElementById('prodGenre').value = data.genre;
-  document.getElementById('prodBadge').value = data.badge || '';
-  document.getElementById('prodDesc').value  = data.description;
+  document.getElementById('prodBadge').value   = data.badge   || '';
+  document.getElementById('prodFamille').value = data.famille || '';
+  document.getElementById('prodDesc').value    = data.description;
+
+  document.getElementById('variantsList').innerHTML = '';
+  if (data.variantes && data.variantes.length) {
+    data.variantes.forEach(v => addVariantRow(v.label, v.prix));
+  }
 
   const preview = document.getElementById('prodImgPreview');
   preview.src = data.img;
@@ -157,6 +214,10 @@ function resetFormulaire() {
   document.getElementById('cancelBtn').style.display = 'none';
   document.getElementById('prodImgPreview').classList.remove('visible');
   document.getElementById('uploadLabel').innerHTML = '<strong>Cliquer pour choisir une photo</strong><br/>JPG, PNG, WEBP';
+  document.getElementById('variantsList').innerHTML = '';
+  document.getElementById('varianteInfo').style.display = 'none';
+  document.getElementById('varianteInfo').innerHTML = '';
+  variantMode = false;
   ['formError', 'formSuccess'].forEach(id => document.getElementById(id).style.display = 'none');
 }
 

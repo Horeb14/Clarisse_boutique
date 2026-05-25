@@ -87,6 +87,14 @@
             <label>Badge (optionnel)</label>
             <input type="text" id="prodBadge" placeholder="Best-seller" />
           </div>
+          <input type="hidden" id="prodFamille" />
+          <div class="variante-info" id="varianteInfo" style="display:none"></div>
+          <div class="form-group full">
+            <label>Variantes (optionnel) <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#aaa">— ex : 50ml / 12 000 CFA</span></label>
+            <div id="variantsList"></div>
+            <button type="button" class="btn btn-secondary btn-sm" id="addVariantBtn" style="margin-top:8px">+ Ajouter une variante</button>
+            <small style="color:#aaa;font-size:0.78rem;margin-top:6px;display:block">Si des variantes sont renseignées, le client choisit sa taille dans la fiche produit.</small>
+          </div>
           <div class="form-group full">
             <label>Description *</label>
             <textarea id="prodDesc" placeholder="Description du produit..." required></textarea>
